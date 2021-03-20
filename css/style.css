@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+:root {
+  --game-height: calc( 100vh - 40px );
+  --game-width: calc( ( 100vh - 40px ) / 2);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #39ad7a;
+}
+
+game {
+  display: flex;
+  justify-content: center;
+  background-color: green;
+  border: 20px solid #000000;
+}
+
+board {
+  display: flex;
+  flex-direction: column;
+  height: calc( var(--game-height) + calc( var(--game-height) / 20 * 2 ) );
+  width: var(--game-width);
+  background-color: #222222;
+  margin-top: calc( -1 * var(--game-height) / 20 * 2 );
+  margin-left: 20px;
+  margin-right: 20px;
+  overflow: hidden;
+  position: relative;
+}
+  line {
+    display: flex;
+    width: 100%;
+    height: calc( var(--game-height) / 20 );
+  }
+    line:nth-child(even) {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+  cube {
+    display: flex;
+    height: calc( var(--game-height) / 20 );
+    width: calc( var(--game-width) / 10 );
+    background-size: 100%;
+    background-image: url(../img/grid.svg);
+    z-index: 2;
+  }
+
+  cube[value="1"][stoneType="I"] { background-image: url(../img/I-cube.svg); }
+  cube[value="1"][stoneType="J"] { background-image: url(../img/J-cube.svg); }
+  cube[value="1"][stoneType="L"] { background-image: url(../img/L-cube.svg); }
+  cube[value="1"][stoneType="O"] { background-image: url(../img/O-cube.svg); }
+  cube[value="1"][stoneType="S"] { background-image: url(../img/S-cube.svg); }
+  cube[value="1"][stoneType="T"] { background-image: url(../img/T-cube.svg); }
+  cube[value="1"][stoneType="Z"] { background-image: url(../img/Z-cube.svg); }
+
+  ghostStone {
+    position: absolute;
+    z-index: 1;
+  }
+
+site {
+  display: flex;
+  flex-direction: column;
+  background-color: purple;
+  height: var(--game-height);
+  width: 180px;
+}
+  hold {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 140px;
+    width: calc( 100% - 40px );
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: yellow;
+  }
+
+  next {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: calc( var(--game-height) - 260px );
+    width: calc( 100% - 40px );
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: #333333;
+  }
+
+  boardPrev {
+    display: flex;
+    height: 300px;
+    width: 100%;
+    background-color: red;
+  }
+
+  prev {
+    width: 100%;
+  }
+    stone {
+      display: flex;
+      margin-left: auto;
+      margin-right: auto;
+      height: 60px;
+      width: 120px;
+      background-size: 100%;
+    }
+
+  score {
+    display: flex;
+    height: 430px;
+    width: 100%;
+    background-color: lime;
+  }
+
+stone.I { background-image: url(../img/I-prev.svg); }
+stone.J { background-image: url(../img/J-prev.svg); }
+stone.L { background-image: url(../img/L-prev.svg); }
+stone.O { background-image: url(../img/O-prev.svg); }
+stone.S { background-image: url(../img/S-prev.svg); }
+stone.T { background-image: url(../img/T-prev.svg); }
+stone.Z { background-image: url(../img/Z-prev.svg); }
+
+ghostStone.I { background-image: url(../img/I-ghost.svg); }
+ghostStone.J { background-image: url(../img/J-ghost.svg); }
+ghostStone.L { background-image: url(../img/L-ghost.svg); }
+ghostStone.O { background-image: url(../img/O-ghost.svg); }
+ghostStone.S { background-image: url(../img/S-ghost.svg); }
+ghostStone.T { background-image: url(../img/T-ghost.svg); }
+ghostStone.Z { background-image: url(../img/Z-ghost.svg); }
